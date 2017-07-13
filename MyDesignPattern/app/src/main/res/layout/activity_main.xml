@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.test.mydesignpattern.MainActivity">
+
+    <Button
+        android:id="@+id/singleton_button"
+        android:layout_width="177dp"
+        android:layout_height="51dp"
+        android:text="singleton"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="102dp"
+        android:layout_marginTop="15dp"/>
+
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hello"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/msgBtn"
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
+        android:text="@string/msgBtn"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="46dp"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:id="@+id/btnSAX"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="SAX方式解析" />
+    <Button
+        android:id="@+id/btnPull"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Pull方式解析" />
+    <Button
+        android:id="@+id/btnDom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Dom方式解析" />
+
+    <Button
+        android:id="@+id/btnDictProvider"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="DictProvider" />
+
+
+</LinearLayout>
