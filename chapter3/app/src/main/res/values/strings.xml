@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">chapter3</string>
+    <string name="title_activity_demo_1">DemoActivity_1</string>
+    <string name="title_activity_demo_2">DemoActivity_2</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_scene_1">Chapter_3:滑动冲突场景1</string>
+    <string name="title_activity_main">MainActivity</string>
+</resources>
