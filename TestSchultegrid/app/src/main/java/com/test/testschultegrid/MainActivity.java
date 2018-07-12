@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         gridLayout.removeAllViews();
         gridLayout.setColumnCount(colCount);
         gridLayout.setVisibility(View.VISIBLE);
+        gridLayout.removeAllViewsInLayout();
+
 
         ArrayList<Integer> list = new ArrayList<>();
         list.add(0);
@@ -68,10 +71,11 @@ public class MainActivity extends AppCompatActivity {
         RelativeLayout layout = findViewById(R.id.root_layout);
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         int layoutWidth = layout.getWidth();
+        int layoutHeight = layout.getHeight();
 
         //density  ：  其实是 DPI / (160像素/英寸) 后得到的值
-        //int itemSquareLen = (layoutWidth -(metrics.densityDpi/160) *colCount*2)/colCount;
-        int itemSquareLen = (layoutWidth -(metrics.densityDpi/160) *colCount)/colCount;
+        int itemSquareLen = (layoutWidth -(metrics.densityDpi/160) *colCount*5)/colCount;
+        int itemSquareHeight = (layoutHeight - (metrics.densityDpi/160) * colCount*5)/colCount;
 
         int index = 0;
         for(int i=0; i<colCount; i++){
@@ -84,15 +88,29 @@ public class MainActivity extends AppCompatActivity {
 
                 String indexStr = String.valueOf(index);
 
-                Button btn = (Button) Tpl.instance(this, R.layout.tpl, R.id.grid_item_btn);
-                ViewGroup.LayoutParams layoutParams = btn.getLayoutParams();
-                layoutParams.height = itemSquareLen;
-                layoutParams.width = itemSquareLen;
+                //Button btn = (Button) Tpl.instance(this, R.layout.tpl, R.id.grid_item_btn);
+                //ViewGroup.LayoutParams layoutParams = btn.getLayoutParams();
+                //layoutParams.height = itemSquareHeight;
+                //layoutParams.width = itemSquareLen;
 
-                btn.setLayoutParams(layoutParams);
+                Button btn = new Button(this);
+                btn.setBackgroundResource(R.drawable.button_change_color);
+
+
+                GridLayout.Spec rowSpec = GridLayout.spec(i);     //设置它的行和列
+                GridLayout.Spec columnSpec = GridLayout.spec(j);
+                GridLayout.LayoutParams gl = new GridLayout.LayoutParams(rowSpec,columnSpec);
+                gl.setMargins(3,3,3, 3);
+                gl.height = itemSquareLen;
+                gl.width = itemSquareLen;
+                gl.setGravity(Gravity.CENTER);
+
+                btn.setLayoutParams(gl);
+               //btn.setLayoutParams(layoutParams);
                 btn.setText(indexStr);
                 btn.setTextSize(TypedValue.COMPLEX_UNIT_SP, 37-(colCount-3)*5);
                 btn.setOnClickListener(gridItemClick);
+
 
                 gridLayout.addView(btn);
 

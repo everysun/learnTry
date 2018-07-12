@@ -11,8 +11,7 @@
         android:layout_height="0dp"
         android:textSize="35sp"
         android:background="@drawable/button_change_color"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
+
         />
 
     <LinearLayout
